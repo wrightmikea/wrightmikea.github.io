@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>dtn</title>
-<!-- 2016-01-03 Sun 14:23 -->
+<!-- 2016-01-03 Sun 15:39 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Michael Wright" />
@@ -280,7 +280,7 @@ docker run -d -p 8888:80 --name dtnweb dockertanglenginx nginx -g "daemon off;"
 produces:
 </p>
 <pre class="example">
-mwright@SV-LT-1080:~/github/wrightmikea/docker-tangle-nginx[master]$ 51a0979ce561a31e9be74bd94725cc68be63db6a40b8cb35ca76d65d90ec9041
+mwright@SV-LT-1080:~/github/wrightmikea/docker-tangle-nginx[master]$ b7315aa84235e75c32aaae93e94b317dc060ee5e35d7b32de7423925509b8d22
 </pre>
 
 <p>
@@ -296,7 +296,7 @@ shows:
 </p>
 <pre class="example">
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                  PORTS                  NAMES
-51a0979ce561        dockertanglenginx   "nginx -g 'daemon off"   1 seconds ago       Up Less than a second   0.0.0.0:8888-＞80/tcp   dtnweb
+b7315aa84235        dockertanglenginx   "nginx -g 'daemon off"   1 seconds ago       Up Less than a second   0.0.0.0:8888-＞80/tcp   dtnweb
 </pre>
 </div>
 </div>
@@ -306,7 +306,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 <h3 id="sec-1-5"><span class="section-number-3">1.5</span> Fetch from the NGINX server</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
-Since this is on a Mac and docker is running a virtual machine, use the vm's IP address (instead of localhost)
+Since this is on a Mac and docker is running in a virtual machine, use the vm's IP address (instead of localhost).
 </p>
 <div class="org-src-container">
 
@@ -342,7 +342,7 @@ dtnweb
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Michael Wright</p>
-<p class="date">Created: 2016-01-03 Sun 14:23</p>
+<p class="date">Created: 2016-01-03 Sun 15:39</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
