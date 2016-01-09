@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>go-json</title>
-<!-- 2016-01-09 Sat 12:42 -->
+<!-- 2016-01-09 Sat 12:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Michael Wright" />
@@ -295,24 +295,22 @@ func main() {
 
 <pre class="src src-sh" id="build-run-go">exec 2&gt;&amp;1 
 echo building and running locally...
-rm ./unmarsh
-rm ./marsh
+rm -rf ./bin 2&gt;&amp;1 &gt; /dev/null
+mkdir -p ./bin
 export GOPATH=`pwd`/..
 export MARSH=src/gojson/marsh/main/marsh.go
 export UNMARSH=src/gojson/unmarsh/main/unmarsh.go
-go build -v $MARSH 
-go build -v $UNMARSH 
+go build -o ./bin/marsh $MARSH 
+go build -o ./bin/unmarsh $UNMARSH 
 go tool vet src
-./unmarsh src/sample1.json src/sample2.json 
-./marsh
+./bin/unmarsh src/sample1.json src/sample2.json 
+./bin/marsh
 :
 </pre>
 </div>
 
 <pre class="example">
 building and running locally...
-command-line-arguments
-command-line-arguments
 unmarshal JSON s1={sample1 bar 0}
 unmarshal s2array=[{sample2item1 foo 1} {sample2item2 bar 2} {sample2item3 bat 3}]
 marshal Sample:{"name":"foo","xid":"42"}
@@ -325,7 +323,7 @@ marshal sAry:[{"name":"one","xid":"1"},{"name":"two","xid":"2"}]
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Michael Wright</p>
-<p class="date">Created: 2016-01-09 Sat 12:42</p>
+<p class="date">Created: 2016-01-09 Sat 12:57</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
