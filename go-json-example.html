@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>go-json</title>
+<!-- 2016-01-09 Sat 12:42 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Michael Wright" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">go-json</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Go examples JSON marshalling/unmarshalling</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Setup</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1. Pre-requisites</a></li>
+<li><a href="#sec-1-1-2">1.1.2. Sample JSON data</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2. Go JSON examples</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. Unmarshalling JSON</a></li>
+<li><a href="#sec-1-2-2">1.2.2. Marshalling JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Go examples JSON marshalling/unmarshalling</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Setup</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Pre-requisites</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<pre class="example">
+elpa packages installed: dockerfile-mode, go-mode, yaml-mode
+~/emacs.d/init.el customizations: 
+- load babel languages: sh
+- configure for golang development (goimports on save, go oracle)
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Sample JSON data</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+sample1.json
+</p>
+<div class="org-src-container">
+
+<pre class="src src-js" id="sample1-json">{ "name":"sample1", "foo":"bar", "bat":42}
+</pre>
+</div>
+<p>
+sample2.json
+</p>
+<div class="org-src-container">
+
+<pre class="src src-js" id="sample2-json">[
+    { "name":"sample2item1", "alias":"foo", "xid":1},
+    { "name":"sample2item2", "alias":"bar", "xid":2},
+    { "name":"sample2item3", "alias":"bat", "xid":3}
+]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Go JSON examples</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Unmarshalling JSON</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+src/gojson/unmarsh/main/unmarsh.go
+</p>
+<div class="org-src-container">
+
+<pre class="src src-go" id="unmarsh-go">package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+        "os"
+)
+
+type Sample1 struct {
+	Name string `json:"name"`
+	Foo  string `json:"foo"`
+	Xid  int    `json:"xid"`
+}
+type Sample2 struct {
+       Name string  `json:"name"`
+       Alias string `json:"alias"`
+       Xid   int    `json:"xid"`
+}
+func main() {
+        if len(os.Args) != 3 {
+              fmt.Println("usage &gt; ./unmarsh src/sample1.json src/sample2.json")
+              return
+        }
+	s1s, _ := ioutil.ReadFile(os.Args[1])
+	dec1 := json.NewDecoder(bytes.NewReader(s1s))
+	var s1 Sample1
+	dec1.Decode(&amp;s1)
+	fmt.Printf("unmarshal JSON s1=%v\n", s1)
+        s2s, _ := ioutil.ReadFile(os.Args[2])
+        dec2 := json.NewDecoder(bytes.NewReader(s2s))
+        var s2array []Sample2
+        dec2.Decode(&amp;s2array)
+        fmt.Printf("unmarshal s2array=%v\n", s2array)
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> Marshalling JSON</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+src/gojson/marsh/main/marsh.go
+</p>
+<div class="org-src-container">
+
+<pre class="src src-go" id="marsh-go">package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type Sample struct {
+	Name string `json:"name"`
+	Xid  string `json:"xid"`
+}
+
+func main() {
+	var aSample Sample
+	aSample.Name = "foo"
+	aSample.Xid = "42"
+        s, _ := json.Marshal(aSample)
+	fmt.Printf("marshal Sample:%s\n", string(s))
+        var sAry = make([]Sample, 2)
+        sAry[0].Name = "one"
+        sAry[0].Xid = "1"
+        sAry[1].Name = "two"
+        sAry[1].Xid = "2"
+        s, _ = json.Marshal(sAry)
+        fmt.Printf("marshal sAry:%s\n", string(s))
+}
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-sh" id="build-run-go">exec 2&gt;&amp;1 
+echo building and running locally...
+rm ./unmarsh
+rm ./marsh
+export GOPATH=`pwd`/..
+export MARSH=src/gojson/marsh/main/marsh.go
+export UNMARSH=src/gojson/unmarsh/main/unmarsh.go
+go build -v $MARSH 
+go build -v $UNMARSH 
+go tool vet src
+./unmarsh src/sample1.json src/sample2.json 
+./marsh
+:
+</pre>
+</div>
+
+<pre class="example">
+building and running locally...
+command-line-arguments
+command-line-arguments
+unmarshal JSON s1={sample1 bar 0}
+unmarshal s2array=[{sample2item1 foo 1} {sample2item2 bar 2} {sample2item3 bat 3}]
+marshal Sample:{"name":"foo","xid":"42"}
+marshal sAry:[{"name":"one","xid":"1"},{"name":"two","xid":"2"}]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Michael Wright</p>
+<p class="date">Created: 2016-01-09 Sat 12:42</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
